@@ -5,6 +5,7 @@ class CreateDeliveries < ActiveRecord::Migration[7.0]
       t.string :description
       t.text :details
       t.date :supposed_to_arrive_on
+      t.boolean :arrived, default: false
 
       t.timestamps
     end

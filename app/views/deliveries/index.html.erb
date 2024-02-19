@@ -47,6 +47,12 @@
         <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on">
       </div>
 
+      <div>
+        <input type="checkbox" id="arrived_box" name="query_arrived" value="1">
+
+        <label for="arrived_box">Arrived</label>
+      </div>
+
       <button>
         Create delivery
       </button>
@@ -77,6 +83,10 @@
 
         <th>
           Supposed to arrive on
+        </th>
+
+        <th>
+          Arrived
         </th>
 
         <th>
@@ -111,6 +121,10 @@
 
         <td>
           <%= a_delivery.supposed_to_arrive_on %>
+        </td>
+
+        <td>
+          <%= a_delivery.arrived %>
         </td>
 
         <td>

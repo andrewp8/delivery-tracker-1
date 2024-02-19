@@ -3,6 +3,7 @@
 # Table name: deliveries
 #
 #  id                    :integer          not null, primary key
+#  arrived               :boolean          default(FALSE)
 #  description           :string
 #  details               :text
 #  supposed_to_arrive_on :date
@@ -11,4 +12,6 @@
 #  user_id               :integer
 #
 class Delivery < ApplicationRecord
+  validates(:description, {presence:true})
+  validates(:supposed_to_arrive_on, {presence:true})
 end

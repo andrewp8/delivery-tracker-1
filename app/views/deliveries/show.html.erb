@@ -48,6 +48,13 @@
       </dd>
 
       <dt>
+        Arrived
+      </dt>
+      <dd>
+        <%= @the_delivery.arrived %>
+      </dd>
+
+      <dt>
         Created at
       </dt>
       <dd>
@@ -104,6 +111,14 @@
         </label>
 
         <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on" value="<%= @the_delivery.supposed_to_arrive_on %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="arrived_box" name="query_arrived" value="1" <%= "checked" if @the_delivery.arrived %>>
+
+        <label for="arrived_box">
+            Arrived
+        </label>
       </div>
 
       <button>

@@ -44,3 +44,53 @@
     </form>
   </div>
 </div>
+
+<div class="waiting_on">
+  <h2>Waiting on</h2>
+  <ul>
+    <% @list_of_waiting_deliveries.each do |a_delivery| %>
+      <li>
+        <div><%= a_delivery.description %></div>
+        <% color_status = a_delivery.supposed_to_arrive_on < Date.today ? "red" : "black" %>
+        <div style="color: <%= color_status %>">
+          Supposed to arrive on
+          <%= a_delivery.supposed_to_arrive_on.strftime("%Y-%m-%d") %>
+        </div>
+
+        <div>
+          <%= a_delivery.details %>
+        </div>
+        <div>
+          <form action="/modify_delivery/<%= a_delivery.id %>" method="post">
+            <input type="hidden" name="query_arrived" value="true">
+
+            <button>Mark as received</button>
+          </form>
+        </div>
+
+        <br>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="received">
+  <h2>Received</h2>
+
+  <ul>
+    <% @list_of_arrived_deliveries.each do |a_delivery| %>
+      <li>
+        <div>Ergonomic Wooden Lamp</div>
+
+        <div>
+          <small>
+            Updated 10 minutes ago
+
+            <a href="/delete_delivery/181510">Delete</a>
+          </small>
+        </div>
+      </li>
+      <li>
+      <% end %>
+    </ul>
+  </div>
