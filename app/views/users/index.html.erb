@@ -1,3 +1,4 @@
+
 <div>
   <h1>
     Delivery Tracker
@@ -80,19 +81,18 @@
   <h2>Received</h2>
 
   <ul>
-    <% @list_of_arrived_deliveries.each do |a_delivery| %>
+    <% @list_of_arrived_deliveries.each do |received_delivery| %>
       <li>
-        <div>Ergonomic Wooden Lamp</div>
+        <div><%= received_delivery.description %></div>
 
         <div>
           <small>
-            Updated 10 minutes ago
+            Updated <%= time_ago_in_words(received_delivery.updated_at)%> ago
 
-            <a href="/delete_delivery/181510">Delete</a>
+            <a href="/delete_delivery/<%= received_delivery.id %>">Delete</a>
           </small>
         </div>
       </li>
-      <li>
       <% end %>
     </ul>
   </div>

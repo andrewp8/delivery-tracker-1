@@ -23,11 +23,11 @@ class DeliveriesController < ApplicationController
     the_delivery.description = params.fetch("query_description")
     the_delivery.details = params.fetch("query_details")
     the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive_on")
-    the_delivery.arrived = true
+    the_delivery.arrived = false
 
     if the_delivery.valid?
       the_delivery.save
-      redirect_to("/", { :notice => "Delivery created successfully." })
+      redirect_to("/", { :notice => "Added to list." })
     else
       redirect_to("/", { :alert => the_delivery.errors.full_messages.to_sentence })
     end
@@ -41,7 +41,7 @@ class DeliveriesController < ApplicationController
     the_delivery.description = params.fetch("query_description")
     the_delivery.details = params.fetch("query_details")
     the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive_on")
-    the_delivery.arrived = params.fetch("query_arrived")
+    the_delivery.arrived = true
     
     if the_delivery.valid?
       the_delivery.save
@@ -57,6 +57,6 @@ class DeliveriesController < ApplicationController
 
     the_delivery.destroy
 
-    redirect_to("/deliveries", { :notice => "Delivery deleted successfully."} )
+    redirect_to("/", { :notice => "Delivery deleted successfully."} )
   end
 end
